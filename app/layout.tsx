@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar/NavBar";
+import Modal from "./components/modal/Modal";
+import LoginModal from "./components/modal/LoginModal";
+import SignUpModal from "./components/modal/SignUpModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +32,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="pt-32">
         {children}
         </div>
+
+        {/* <Modal
+        label="Sign Up"
+        content={<p>Content Info Blah Blah Blah</p>}
+        isOpen={true}/> */}
+
+        <LoginModal />
+        <SignUpModal />
       </body>
     </html>
   );
