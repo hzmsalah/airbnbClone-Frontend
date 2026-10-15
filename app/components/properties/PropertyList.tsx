@@ -15,15 +15,19 @@ export type PropertyType = {
 export default function PropertyList(){
     const [properties, setProperties] = useState<PropertyType[]>([]);
     
-    const getProperties = async () => {
+    const getProperties = async () => { // make asyncronous code behave like syncronous
         const url = '/api/properties/'
-        const tempProperties = await apiService.get(url)
+        const tempProperties = await apiService.get(url) //pauses execuation until promise is resolved
         setProperties(tempProperties.data);
     };
 
     useEffect(()=>{
+        //Mount: Runs when component loads
         getProperties();
-    },[])
+
+        //Unmount: Runs when the component is removed (Cleanup)
+        //return(xyz)
+    },[]) // Dependencies: reload if these change
 
     return(
         <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">

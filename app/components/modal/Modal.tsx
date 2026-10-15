@@ -13,6 +13,14 @@ interface ModalProperties{
 export default function Modal({label, close, content, isOpen}:ModalProperties){
     const [showModal, setShowModal] = useState(isOpen);
 
+    const handleClose = useCallback(() => {
+        setShowModal(false);
+
+        setTimeout(()=>{
+            close();
+        },300)
+    },[close])
+
     useEffect(() => {
         setShowModal(isOpen)
     },[isOpen])
@@ -23,14 +31,7 @@ export default function Modal({label, close, content, isOpen}:ModalProperties){
         )
     }
 
-    const handleClose = useCallback(() => {
-        setShowModal(false);
-
-        setTimeout(()=>{
-            close();
-        },300)
-    },[close])
-
+    
 
     return(
         // Dark Background
