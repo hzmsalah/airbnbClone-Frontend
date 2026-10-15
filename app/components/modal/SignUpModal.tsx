@@ -101,7 +101,6 @@ export default function SignUpModal(){
             </form>
         </>
     )
-    //24:31
     return(
         <Modal
         isOpen = {signupModal.isOpen}
